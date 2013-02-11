@@ -4,6 +4,7 @@ module Spree
 
     class TenantFinder
       def find_target_tenant(request)
+
         domain_tenant = Spree::Tenant.find_by_domain(request.domain)
 
         subdomain_tenant = nil

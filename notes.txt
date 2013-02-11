@@ -1,0 +1,32 @@
+---- missed test!  having a tenant name excplicity set in the dsl.  that should override the path entry
+---- skipping the auto-detect of tenant name for dsls and requiring that you explicity set it
+---- need a test for sources/template 
+     
+
+
+
+
+extensible way of modifying environment.rb's path...use Rails 'path'
+
+get deface to use that mechanism..and in the landlord initializer modify that
+
+different paths for each test...so no need to cleanup overrides
+
+
+
+look at assets rakefile for magic for each rails env if i need it for override precompilation
+
+------
+done
+------
+https://github.com/railsdog/spree_landlord/blob/master/spec/spec_helper.rb#L3 vs. copying in Rakefile
+move https://github.com/jsqu99/spree_landlord/blob/topic/deface/spec/spec_helper.rb#L65 to it's own file in support
+
+have rake task invoke refactored code that lives in a class - https://github.com/spree/deface/pull/78
+
+uncomment https://github.com/jsqu99/spree_landlord/blob/topic/deface/lib/spree/spree_landlord/tenant_helpers.rb#L21 then prepend!!!!
+remove block at line #29
+
+revisit using disabled
+
+extend deface to support adding actions (:tenant_name)

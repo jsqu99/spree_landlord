@@ -1,5 +1,8 @@
 source 'http://rubygems.org'
 
+gem 'deface', :github => 'jsqu99/deface', :branch => 'spree_landlord_take_2'
+#gem 'deface', :path => '../deface'
+
 gem 'spree', '~> 1.3.1'
 gem 'spree_sample', '~> 1.3.1'
 
@@ -22,3 +25,5 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+
+gem 'pry'
