@@ -12,7 +12,6 @@ module Spree
           subdomain_tenant = Spree::Tenant.find_by_shortname(shortname.downcase)
         end
 
-
         if is_master_tenant?(domain_tenant)
           if subdomain_tenant.present?
             return subdomain_tenant
@@ -24,6 +23,8 @@ module Spree
             return domain_tenant
           elsif subdomain_tenant.present?
             return subdomain_tenant
+          elsif request.domain == 'localhost' || request.domain.nil?
+            return Spree::Tenant.master
           end
         end
 
@@ -48,3 +49,4 @@ module Spree
     end
   end
 end
+
