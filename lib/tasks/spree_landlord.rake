@@ -5,8 +5,12 @@ namespace :spree_landlord do
 
       def prompt_for_shortname
         ask('Tenant Short Name: ') do |q|
-          q.validate = lambda { |a| a.present? }
-          q.responses[:not_valid] = 'The short name must be provided'
+          q.default = Faker::Internet.domain_word
+          q.validate = lambda { |a| 
+            tenant = Spree::Tenant.new(:shortname => a, :domain => 'test.com')
+            tenant.valid?
+          }
+          q.responses[:not_valid] = "A valid short name must be provided"
           q.whitespace = :strip
         end
       end
